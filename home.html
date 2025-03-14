@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Sliding Infinite Slider</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #111;
+        }
+
+        .container {
+            position: relative;
+            width: 100vw;
+            height: 300px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 500%; /* 3 slides + 2 clones */
+        }
+
+        .slide {
+            width: 100vw;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: white;
+        }
+
+        /* Different Backgrounds for Slides */
+        .slide-1 { background: linear-gradient(45deg, #ff00ff, #ff6600); }
+        .slide-2 { background: linear-gradient(45deg, #0066ff, #00ff99); }
+        .slide-3 { background: linear-gradient(45deg, #ffcc00, #ff0033); }
+
+        /* Cloned Slides */
+        .clone-start { background: linear-gradient(45deg, #ffcc00, #ff0033); } /* Clone of Slide 3 */
+        .clone-end { background: linear-gradient(45deg, #ff00ff, #ff6600); } /* Clone of Slide 1 */
+
+        /* Navigation Buttons */
+        .btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 10;
+        }
+
+        .btn-left { left: 10px; }
+        .btn-right { right: 10px; }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="slider">
+            <!-- Clone of Last Slide (Before 1st) -->
+            <div class="slide clone-start">Slide 3</div>
+
+            <div class="slide slide-1">Slide 1</div>
+            <div class="slide slide-2">Slide 2</div>
+            <div class="slide slide-3">Slide 3</div>
+
+            <!-- Clone of First Slide (After Last) -->
+            <div class="slide clone-end">Slide 1</div>
+        </div>
+        <button class="btn btn-left" onclick="prevSlide()">&#9665;</button>
+        <button class="btn btn-right" onclick="nextSlide()">&#9655;</button>
+    </div>
+
+    <script>
+        let index = 1; // Start at real Slide 1
+        const slider = document.querySelector('.slider');
+        const totalSlides = 3;
+        const slideWidth = 100; // vw
+        let autoSlideInterval;
+
+        function updateSlide() {
+            slider.style.transition = "transform 0.5s ease-in-out";
+            slider.style.transform = `translateX(${-index * slideWidth}vw)`;
+        }
+
+        function nextSlide() {
+            index++;
+            updateSlide();
+
+            // Reset to first slide seamlessly
+            setTimeout(() => {
+                if (index > totalSlides) {
+                    slider.style.transition = "none";
+                    index = 1;
+                    slider.style.transform = `translateX(${-index * slideWidth}vw)`;
+                }
+            }, 500);
+
+            resetAutoSlide();
+        }
+
+        function prevSlide() {
+            index--;
+            updateSlide();
+
+            // Reset to last slide seamlessly
+            setTimeout(() => {
+                if (index === 0) {
+                    slider.style.transition = "none";
+                    index = totalSlides;
+                    slider.style.transform = `translateX(${-index * slideWidth}vw)`;
+                }
+            }, 500);
+
+            resetAutoSlide();
+        }
+
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(nextSlide, 3000); // Change every 3 seconds
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+
+        // Set initial position
+        slider.style.transform = `translateX(${-index * slideWidth}vw)`;
+        startAutoSlide(); // Start automatic sliding
+
+    </script>
+
+</body>
+</html>
+
