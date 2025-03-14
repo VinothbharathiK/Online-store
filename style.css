@@ -1,18 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap');
 body{
-    background-color: rgb(238, 234, 234);
-    height: 150vh;
-    width: 100%;
+    background-color: rgb(255, 255, 255);
+  
     overflow-x: hidden;
 }
 
                  /*Navigation bar */
+
 .navbar{
-    background-color: rgb(0, 0, 0) !important; 
+   background-color: rgb(255, 255, 255) !important;
     position: fixed;
     right: 0;
     left: 0; 
     top: 0;
-    z-index: 100;  
+    z-index: 100; 
+    box-shadow: -0.5px 2px 10px black; 
+
     }
 
 .account a {
@@ -25,19 +28,23 @@ body{
 
 .account a{
     background-color: rgb(0, 0, 0);
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
+
+
 #navbar-links li a{
-    color: white;
+    color: rgb(0, 0, 0);
 }
+
+
 
 .dropdown-item{
     color: rgb(0, 0, 0) !important;
 }
 
 
-
+              /* home slider content  */
 
     
     /* Space below navbar for content */
@@ -96,6 +103,74 @@ body{
     .btn-right {
         right: 10px;
     }
+    
+
+             /* home new items section */
+
+.new_items_section{
+    width: 96%;
+    min-height: 100vh;
+    display:grid;
+    gap:2vw;
+    margin-left: 3vw;
+    grid-template-columns: repeat(5,1fr);
+}   
+
+
+.product_block{
+   height: 60vh;
+    background-color: #ffffff;
+    display: block;
+    
+    border: 1px solid rgb(233, 230, 230);
+   
+ }
+
+ .product_block:hover{
+    
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.5); /* Even shadow on all sides */
+
+ }
+
+ .product_image{
+    height: 38%;
+    width: 100%;
+    background-image: url(img1.jpg);
+ }
+
+ .product_description{
+    height: 30%;
+    width: 100%;
+    padding: 10px;
+    overflow: hidden;
+ }
+
+.product_price{
+    height: 22%;
+    padding: 10px;
+
+  
+}
+
+                /* to show a product not available  */
+
+/* .not_available{
+padding-top: 20%;
+color: rgb(255, 255, 255);
+padding-left: 32%;
+
+}
+
+.product_block{
+    color: gray;
+}
+
+.product_image:hover{
+    height: 35%;
+    width: 100%;
+   background-image: linear-gradient(to right,rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url(img1.jpg);
+ } */
+
     
 
 
