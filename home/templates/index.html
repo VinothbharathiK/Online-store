@@ -7,11 +7,26 @@
 <div class="slider-container">
   <div class="slider-wrapper">
       <div class="slider">
-          <div class="slide">slide 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui illo veniam praesentium vitae quia a, eligendi dolorum sunt voluptates mollitia, error neque distinctio vel molestiae totam eius, perspiciatis incidunt iure!</div>
-          <div class="slide" ></div>
-          <div class="slide">Slide 3</div>
-          <div class="slide">Slide 4</div>
-          <div class="slide">Slide 5</div>
+
+          {%for slide in slides%}
+
+          <div class="slide">
+             
+            <div style="width: 50%;" class="slider_content">
+             
+                <h1>{{slide.name}}</h1>
+                <h3>{{slide.description}}</h3>
+           
+              
+            </div>
+            <div style="width: 50%;background-image: linear-gradient(to right,white,rgb(255, 255, 255,0.05) ,rgb(0, 0, 0,0.2),rgb(0, 0, 0,0.2)),url('{{slide.image.url}}');background-size: cover;" class="slide_image" >
+              
+              
+            </div>
+           
+          </div>
+           {%endfor%}
+          
       </div>
   </div>
   <button class="btn btn-left" onclick="prevSlide()">&#9665;</button>
@@ -25,6 +40,7 @@
       <div class="items_section">
         
         {% for product in products%}
+        {%if product.is_sale %}
         <div class="product_block">
           <img src="{{product.image.url}}" class="product_image" alt="">
         <div class="product_description"> 
@@ -33,15 +49,33 @@
            </div>
 
            <div class="product_price">
-            <p style="color: rgb(109, 109, 8);text-shadow: -1px 0.5px 1px black;"><i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
+            <p style="color: rgb(255, 255, 255);" class="review_button"><i class="fa-solid fa-star"> 4.5</i></p>
             <p style="margin-top: -7px;">
             <b>$ {{product.price}}</b> <span style="font-size: 0.8rem;color: grey;text-decoration: line-through;padding:0 5px 0 5px;">${{product.original_price}} </span>  <span style="color:green;font-size: 0.9rem;">{{product.discount_percentage}}off</span></p>
            </div>
-         <button style="margin-left: 30%;" id="add_to_cart">Add to cart</button>
+         <button style="margin-left: 30%;" class="add_to_cart">Add to cart</button>
       </div>
+
+      {%else%}
+      <div class="product_block" id="product_block_not">
+        <div class="product_image" style="background-image: linear-gradient(to right,rgb(223, 219, 219,0.5),rgb(214, 211, 211,0.5)),url('{{product.image.url}}');"><center><h5> Not available now</h5></center></div>
+        
+      <div class="product_description"> 
+   <h5>{{product.name}}</h5>
+       <p>{{product.description}} </mollitia></p> 
+         </div>
+
+         <div class="product_price">
+          <p style="color: rgb(255, 255, 255);background-color: gray;" class="review_button"><i class="fa-solid fa-star"> 4.5</i></p>
+          <p style="margin-top: -7px;">
+          <b>$ {{product.price}}</b> <span style="font-size: 0.8rem;color: grey;text-decoration: line-through;padding:0 5px 0 5px;">${{product.original_price}} </span>  <span style="font-size: 0.9rem;">{{product.discount_percentage}}off</span></p>
+         </div>
+       <button style="margin-left: 30%;"  id="add_to_cart">Add to cart</button>
+    </div>
+      {%endif%}
 
   {%endfor%}
       </div>
-    
+    eoijejep
 
       {% endblock %}

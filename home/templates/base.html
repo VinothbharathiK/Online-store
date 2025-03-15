@@ -22,11 +22,18 @@
    
 
 
-                             <!-- Slider Section -->
-
-                            
+            <!-- Slider Section -->
+ {%if messages %}
+ {%for message in messages%}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert" style="background-color: rgb(48, 255, 144);z-index: 10000;">
+    {{message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+ {%endfor%}
+{%endif%}            
               <!--     offer section  -->
               {% block content %}
+
               {% endblock %}
          
 
