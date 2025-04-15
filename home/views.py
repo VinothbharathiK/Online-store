@@ -3,6 +3,9 @@ from .models import Product,Slider
 from django.contrib.auth import authenticate, login,logout
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
+from django import forms
+from .forms import SignUpForm
 
 def home(request):
     products=Product.objects.all()
@@ -34,3 +37,15 @@ def logout_user(request):
     return redirect('home')
 
 
+def register_user(request):
+    form = SignUpForm()
+    if request.method == "POST":
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            user = form.save()  # Save the user
+            login(request, user)  # Log in the user directly
+            messages.success(request, ("Account created successfully!"))
+            return redirect('home')
+        else:
+            messages.error(request, ("There was a problem with your registration. Please try again."))
+    return render(request, 'register.html', {'form': form})
