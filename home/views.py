@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from .forms import SignUpForm
+from django.shortcuts import get_object_or_404
 
 def home(request):
     products=Product.objects.all()
@@ -50,7 +51,6 @@ def register_user(request):
             messages.error(request, ("There was a problem with your registration. Please try again."))
     return render(request, 'register.html', {'form': form})
 
-def product(request, pn):
-    product=Product.objects.get(id=pn)
-    
-    return render(request,'product.html',{'product':product})
+def product(request, product_name):
+    product = get_object_or_404(Product, name=product_name)
+    return render(request, 'product.html', {'product': product})
