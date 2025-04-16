@@ -185,7 +185,9 @@ body{
 .add_to_cart{
     background-image: linear-gradient(to right,rgba(36, 35, 35, 0.5),white);
     border: none;
-    box-shadow: -1px 1px 2px black;
+    border-radius: 3px;
+    padding: 3px 5px 3px 5px;
+    box-shadow: 0px 0px 10px rgb(154, 153, 153);
 }
 
 .add_to_cart:hover{
@@ -199,7 +201,9 @@ body{
 #add_to_cart{
    background-color: gray;
     border: none;
-    box-shadow: -1px 1px 2px black;
+    border-radius: 3px;
+    padding: 3px 5px 3px 5px;
+    box-shadow: 0px 0px 10px rgb(154, 153, 153);
    
 }
 

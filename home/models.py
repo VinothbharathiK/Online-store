@@ -27,6 +27,9 @@ class Product(models.Model):
     description=models.CharField(max_length=100)
     detail_description=models.TextField(blank=True)
     image=models.ImageField(upload_to='images/',blank=True)
+    image2=models.ImageField(upload_to='images/',blank=True)
+    image3=models.ImageField(upload_to='images/',blank=True)
+
     is_sale=models.BooleanField(default=True)
 
     def __str__(self):
