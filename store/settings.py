@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-22!0(rs2%lgb(%ap^1r9*ad0#q65nk7d_xbl^852n)_inj1*b-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -107,13 +107,27 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIR=['home/static',]
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'home' / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 MEDIA_URL='media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+
+
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Static files settings
+STATIC_URL = '/static/'
+
+# Add cache control headers for development
+# This will tell the browser to not cache static files during development
+if DEBUG:
+    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+

@@ -1,0 +1,55 @@
+
+@media (max-width: 768px) {
+    .account {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .account a {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+
+    #navbar-links li a {
+        text-shadow: 0 0 3px #000;
+        color: white;
+        margin-left: 25vw;
+       
+
+    }
+
+    .account a{
+        text-shadow: 0 0 3px #000;
+        color: white;
+        margin-left: 25vw;
+    }
+
+    
+    .d-flex{
+        display: none !important;
+    }
+    .items_section{
+        grid-template-columns: repeat(1,1fr);
+       
+    
+    } 
+
+    .product_block{
+        height: 500px;
+        width: 90%;
+        margin: 0 0 40px 5vw;
+    }
+
+    .dropdown-menu{
+        display: none !important;
+    }
+    .dropdown{
+        display: none;
+    }
+
+    .slider-container {
+       height: 30vh;
+    }
+
+   
+  }
