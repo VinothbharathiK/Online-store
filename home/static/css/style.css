@@ -1,9 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Finger+Paint&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Pacifico&family=Rubik+Mono+One&family=Rubik+Vinyl&family=Sofia&display=swap');
 body{
     background-color: rgb(255, 255, 255);
-
     padding: 0;
     overflow-x: hidden;
+}
+
+*{
+    font-family: "Josefin Sans", sans-serif ;
 }
 
                  /*Navigation bar */
@@ -188,6 +191,7 @@ body{
     border-radius: 3px;
     padding: 3px 5px 3px 5px;
     box-shadow: 0px 0px 10px rgb(154, 153, 153);
+    font-family: "Josefin Sans", sans-serif;
 }
 
 .add_to_cart:hover{

@@ -40,12 +40,12 @@
         margin: 0 0 40px 5vw;
     }
 
-    .dropdown-menu{
+    /* .dropdown-menu{
         display: none !important;
-    }
-    .dropdown{
+    } */
+    /* .dropdown{
         display: none;
-    }
+    } */
 
     .slider-container {
        height: 30vh;

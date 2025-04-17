@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import Product,Slider
+from .models import Product,Slider,Category
 from django.contrib.auth import authenticate, login,logout
 from django.contrib import messages
 from django.contrib.auth.models import User
@@ -54,3 +54,16 @@ def register_user(request):
 def product(request, product_name):
     product = get_object_or_404(Product, name=product_name)
     return render(request, 'product.html', {'product': product})
+
+def category(request, cat):
+    cat = cat.replace('-', ' ')
+
+    try:
+        category = Category.objects.get(name__iexact=cat)
+        products = Product.objects.filter(categories=category)
+        return render(request, 'category.html', {'products': products, 'category': category})
+    except Category.DoesNotExist:
+        messages.error(request, "Category not found")
+        return redirect('home')
+
+    
