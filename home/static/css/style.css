@@ -125,6 +125,7 @@ body{
     gap:2vw;
     margin-left: 3vw;
     grid-template-columns: repeat(5,1fr);
+    margin-bottom: 40px;
 }   
 
 

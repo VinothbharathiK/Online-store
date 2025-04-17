@@ -28,8 +28,10 @@
   .main-img {
   
     width: 50%;
+    max-height: 120vh;
     height:auto;
     object-fit: cover;
+    background-position: center;
     background-size: cover;
     padding: 10px;
     transition: transform 0.3s ease;
@@ -154,4 +156,6 @@
     .price {
       font-size: 1.2rem;
     }
+
+  
   }

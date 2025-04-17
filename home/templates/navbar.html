@@ -12,7 +12,7 @@
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'mobiles' 'mobile-phone' %}">PC</a>
+            <a class="nav-link" href="{% url 'mobiles' 'mobiles' %}">PC</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Laptops</a>
@@ -21,17 +21,17 @@
             <a class="nav-link" href="#">PC</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="{% url 'mobiles' 'mobiles' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
              Mobiles
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">5G</a></li>
-              <li><a class="dropdown-item" href="#">Samsung</a></li>
-              <li><a class="dropdown-item" href="#">Iphone</a></li>
-              <li><a class="dropdown-item" href="#">Realme</a></li>
-              <li><a class="dropdown-item" href="#">Oppo</a></li>
+              <li><a class="dropdown-item" href="{% url 'mobiles' '5g' %}">5G</a></li>
+              <li><a class="dropdown-item" href="{% url 'mobiles' 'samsung' %}">Samsung</a></li>
+              <li><a class="dropdown-item" href="{% url 'mobiles' 'iphone' %}">Iphone</a></li>
+              <li><a class="dropdown-item" href="{% url 'mobiles' 'realme' %}">Realme</a></li>
+              <li><a class="dropdown-item" href="{% url 'mobiles' 'oppo' %}">Oppo</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Others</a></li>
+              <li><a class="dropdown-item" href="{% url 'mobiles' 'mobiles' %}">Others</a></li>
             </ul>
           </li>
         </ul>
