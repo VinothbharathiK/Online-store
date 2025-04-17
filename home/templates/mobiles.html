@@ -3,14 +3,20 @@
 {% block content%}
 
 <style>
-    .items_section{
-        margin-top: 5%;
+  @media  (max-width:750px) {
+    .categoty-title h2{
+        margin-top: 2%;
+        background-color: gray;
+        padding: 25px 0px 10px 0px;
+  
     }
+  }
 </style>
-       <div style="margin-top: 3.5%;background-color: gray;width: 100%;padding:20px 0 10px 0;">
+  <br><br>
+       <div class="categoty-title" >
         <h2> <center>{{category}}</center></h2>
        </div>
-
+ <br><br>
       <div class="items_section">
         
         

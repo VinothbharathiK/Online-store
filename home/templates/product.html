@@ -14,29 +14,39 @@
 </head>
 <body>
     <div class="containerr">
+      
         <div class="gallery">
-          <img src="https://static.vecteezy.com/system/resources/thumbnails/028/559/097/small_2x/future-mobile-phone-free-photo.jpg" id="mainImage" class="main-img" alt="Product" />
+          <img src="{{product.image.url}}" id="mainImage" class="main-img" alt="Product" />
           <div class="thumbnails">
-            <img src="https://th.bing.com/th/id/OIP.bXC4ksOozLGeTDoGsagzjAHaE8?w=1024&h=683&rs=1&pid=ImgDetMain" class="thumbnail" onclick="changeImage(this)">
-            <img src="https://via.placeholder.com/500x500?text=Image+2" class="thumbnail" onclick="changeImage(this)">
-            <img src="https://via.placeholder.com/500x500?text=Image+3" class="thumbnail" onclick="changeImage(this)">
-            <img src="https://via.placeholder.com/500x500?text=Image+4" class="thumbnail" onclick="changeImage(this)">
+            <img src="{{product.image2.url}}" class="thumbnail" onclick="changeImage(this)">
+            <img src="{{product.image3.url}}" class="thumbnail" onclick="changeImage(this)">
+            <img src="{{product.image.url}}" class="thumbnail" onclick="changeImage(this)">
           </div>
         </div>
     
         <div class="details">
-          <h1>Galaxy S24 Ultra 5G</h1>
-          <div class="price">₹1,24,999</div>
-          <div class="description">Experience next-gen power with the Galaxy S24 Ultra. Packed with a 200MP camera, AMOLED display, and Snapdragon 8 Gen 3 chip. It’s the future, in your hand.</div>
+          <h1>{{product.name}}</h1>
+          <div class="product_price price">
+            <p style="margin-top: -7px;">
+            <b>$ {{product.price}}</b> <span style="font-size: 0.8rem;color: grey;text-decoration: line-through;padding:0 5px 0 5px;">${{product.original_price}} </span>  <span style="color:green;font-size: 0.9rem;">{{product.discount_percentage}}off</span></p>
+           </div>
+          <div class="description">{{product.description}}</div>
           <div class="options">
             <select>
-              <option>Choose Color: Phantom Black</option>
+              <option>Phantom Black</option>
               <option>Navy Blue</option>
               <option>Silver Titanium</option>
             </select>
             <select>
-              <option>Storage: 256GB</option>
-              <option>512GB</option>
+              <option>{{product.ramm}}</option>
+              <option>128GB</option>
+              <option>356GB</option>
+              <option>1TB</option>
+            </select>
+            <select>
+              <option>{{product.storagee}}</option>
+              <option>128GB</option>
+              <option>356GB</option>
               <option>1TB</option>
             </select>
           </div>
@@ -45,13 +55,15 @@
           <div class="specs">
             <h2>Specifications:</h2>
             <ul>
-              <li>6.8" Dynamic AMOLED 2X, 120Hz</li>
-              <li>Snapdragon 8 Gen 3 Processor</li>
-              <li>200MP + 50MP + 12MP + 10MP Quad Rear Camera</li>
-              <li>12GB RAM, up to 1TB Storage</li>
-              <li>5000mAh Battery, 45W Fast Charging</li>
+              <li>{{product.display}}</li>
+              <li>{{product.processor}}</li>
+              <li>{{product.camera}}</li>
+              <li>{{product.ramm}} RAM, up to {{product.storagee}} Storage</li>
+              <li>{{product.battery}} Battery, 45W Fast Charging</li>
               <li>IP68 Dust/Water Resistant</li>
               <li>Android 14, OneUI 6.1</li>
+              <br>
+              <li>{{product.detail_description}}</li>
             </ul>
           </div>
         </div>

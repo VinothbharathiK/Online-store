@@ -11,16 +11,22 @@
     }
 
     #navbar-links li a {
-        text-shadow: 0 0 3px #000;
-        color: white;
+        text-shadow: 0 0 3px #afafaf;
+        color: rgb(0, 0, 0);
         margin-left: 25vw;
        
 
     }
 
+    #navbar-links li a:hover {
+        text-shadow: 0 0 3px #9f9e9e;
+        color: rgb(255, 196, 0);
+        margin-left: 25vw;
+    }
+
     .account a{
-        text-shadow: 0 0 3px #000;
-        color: white;
+        text-shadow: 0 0 3px #9f9e9e;
+        color: rgb(0, 0, 0);
         margin-left: 25vw;
     }
 
@@ -35,10 +41,22 @@
     } 
 
     .product_block{
-        height: 500px;
-        width: 90%;
-        margin: 0 0 40px 5vw;
-    }
+        height: auto;
+        margin: 0 0px 30px 0;
+      }
+      .product_image{
+        height: auto;
+        width: 100%;
+
+     }
+    
+     .product_description{
+        height: 18%;
+        width: 100%;
+        padding: 10px;
+        overflow: hidden;
+     }
+
 
     /* .dropdown-menu{
         display: none !important;
@@ -52,4 +70,55 @@
     }
 
    
+    
+   
   }
+
+
+  /* Improved Responsive Adjustments */
+@media (max-width: 768px) {
+    .footer-top {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Smaller min-width */
+        gap: 30px;
+    }
+
+    .footer-column {
+        margin-bottom: 30px; /* Add spacing between columns on smaller screens */
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center; /* Center items on mobile */
+        text-align: center; /* Center text on mobile */
+    }
+
+    .payment-methods {
+        margin-bottom: 15px;
+    }
+
+    .legal-links {
+        margin-top: 15px;
+    }
+
+    .legal-links li {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-top {
+        grid-template-columns: 1fr; /* Stack columns on very small screens */
+    }
+
+    .legal-links {
+        flex-direction: column; /* Stack legal links on very small screens */
+        align-items: center;
+    }
+
+    .legal-links li {
+        margin: 5px 0;
+    }
+
+
+}

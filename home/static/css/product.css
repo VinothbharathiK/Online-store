@@ -27,10 +27,11 @@
 
   .main-img {
   
-    width: 70%;
-    height: 500px;
+    width: 50%;
+    height:auto;
     object-fit: cover;
-    border-radius: 10px;
+    background-size: cover;
+    padding: 10px;
     transition: transform 0.3s ease;
   }
 
@@ -137,7 +138,7 @@
 
   @media (max-width: 768px) {
     .main-img {
-      height: 300px;
+      height: auto;
       width: 90%;
     }
 
