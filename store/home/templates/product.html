@@ -1,0 +1,82 @@
+{%extends 'base.html'%}
+{% load static %}
+{% block content%}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile Phone Product Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/product.css'%}">
+  <style>
+   
+
+  </style>
+</head>
+<body>
+    <div class="containerr">
+      
+        <div class="gallery">
+          <img src="{{product.image.url}}" id="mainImage" class="main-img" alt="Product" />
+          <div class="thumbnails">
+            <img src="{{product.image2.url}}" class="thumbnail" onclick="changeImage(this)">
+            <img src="{{product.image3.url}}" class="thumbnail" onclick="changeImage(this)">
+            <img src="{{product.image.url}}" class="thumbnail" onclick="changeImage(this)">
+          </div>
+        </div>
+    
+        <div class="details">
+          <h1>{{product.name}}</h1>
+          <div class="product_price price">
+            <p style="margin-top: -7px;">
+            <b>$ {{product.price}}</b> <span style="font-size: 0.8rem;color: grey;text-decoration: line-through;padding:0 5px 0 5px;">₹ {{product.original_price}} </span>  <span style="color:green;font-size: 0.9rem;">{{product.discount_percentage}}off</span></p>
+           </div>
+          <div class="description">{{product.description}}</div>
+          <div class="options">
+            <select>
+              <option>Phantom Black</option>
+              <option>Navy Blue</option>
+              <option>Silver Titanium</option>
+            </select>
+            <select>
+              <option>{{product.ramm}}</option>
+              <option>128GB</option>
+              <option>356GB</option>
+              <option>1TB</option>
+            </select>
+            <select>
+              <option>{{product.storagee}}</option>
+              <option>128GB</option>
+              <option>356GB</option>
+              <option>1TB</option>
+            </select>
+          </div>
+          <button>Add to Cart</button>
+    
+          <div class="specs">
+            <h2>Specifications:</h2>
+            <ul>
+              <li>{{product.display}}</li>
+              <li>{{product.processor}}</li>
+              <li>{{product.camera}}</li>
+              <li>{{product.ramm}} RAM, up to {{product.storagee}} Storage</li>
+              <li>{{product.battery}} Battery, 45W Fast Charging</li>
+              <li>IP68 Dust/Water Resistant</li>
+              <li>Android 14, OneUI 6.1</li>
+              <br>
+              <li>{{product.detail_description}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        function changeImage(img) {
+          document.getElementById("mainImage").src = img.src;
+        }
+      </script>
+{%endblock%}
+
+
+
+
+

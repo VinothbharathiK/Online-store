@@ -1,0 +1,64 @@
+{%extends 'base.html'%}
+{% load static %}
+{% block content%}
+
+<style>
+  @media  (max-width:750px) {
+    .categoty-title h2{
+        margin-top: 2%;
+        background-color: gray;
+        padding: 25px 0px 10px 0px;
+  
+    }
+  }
+</style>
+  <br><br>
+       <div class="categoty-title" >
+        <h2> <center>{{category}}</center></h2>
+       </div>
+ <br><br>
+      <div class="items_section">
+        
+        
+        {% for product in products%}
+        {%if product.is_sale %}
+       
+        <div class="product_block">
+          <a href="{% url 'product' product.name %}" style="text-decoration: none;color: black;">  <img src="{{product.image.url}}" class="product_image" alt=""> 
+        <div class="product_description"> 
+     <h5>{{product.name}}</h5>
+         <p>{{product.description}} </mollitia></p> 
+           </div> 
+
+           <div class="product_price">
+            <p style="color: rgb(255, 255, 255);" class="review_button"><i class="fa-solid fa-star"> 4.5</i></p>
+            <p style="margin-top: -7px;">
+            <b>$ {{product.price}}</b> <span style="font-size: 0.8rem;color: grey;text-decoration: line-through;padding:0 5px 0 5px;">${{product.original_price}} </span>  <span style="color:green;font-size: 0.9rem;">{{product.discount_percentage}}off</span></p>
+           </div> </a>
+         <button style="margin-left: 30%;" class="add_to_cart">Add to cart</button> 
+      </div> 
+
+      {%else%}
+      <div class="product_block" id="product_block_not">
+        <div class="product_image" style="background-image: linear-gradient(to right,rgb(223, 219, 219,0.5),rgb(214, 211, 211,0.5)),url('{{product.image.url}}');"><center><h5> Not available now</h5></center></div>
+        
+      <div class="product_description"> 
+   <h5>{{product.name}}</h5>
+       <p>{{product.description}} </mollitia></p> 
+         </div>
+
+         <div class="product_price">
+          <p style="color: rgb(255, 255, 255);background-color: gray;" class="review_button"><i class="fa-solid fa-star"> 4.5</i></p>
+          <p style="margin-top: -7px;">
+          <b>$ {{product.price}}</b> <span style="font-size: 0.8rem;color: grey;text-decoration: line-through;padding:0 5px 0 5px;">${{product.original_price}} </span>  <span style="font-size: 0.9rem;">{{product.discount_percentage}}off</span></p>
+         </div>
+        <button style="margin-left: 30%;"  id="add_to_cart">Add to cart</button>
+    </div>
+    
+      {%endif%}
+
+  {%endfor%}
+      </div>
+ 
+
+      {% endblock %}
