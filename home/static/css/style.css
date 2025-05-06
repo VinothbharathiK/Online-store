@@ -79,13 +79,14 @@ body{
     .slide {
         min-width: 100vw;
         text-align: center;
-        font-size: 24px;
+        font-size: 5px;
        height: 350px;
         padding: 50px 0;
         display: flex;
       
 
     }
+
     
     .slide_image{
         height: 350px;
@@ -189,6 +190,8 @@ body{
 .add_to_cart{
     background-color: white;
     border: none;
+    color: black;
+    font-weight: bold;
     border-radius: 3px;
     padding: 3px 5px 3px 5px;
     box-shadow: 0px 0px 10px rgb(154, 153, 153);
@@ -643,6 +646,10 @@ body {
     }
 
    
+    .slider_content {
+      color: tomato;
+      font-size: 0.5rem;
+   }
     
    
   }
